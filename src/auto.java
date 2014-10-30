@@ -22,17 +22,36 @@ public class auto extends Applet{
 	}
 
 	public void setPix() {
+		
 		pix[w/2] = 1;
+		
 		for(int y=1;y<h;y++){
+			if(y < h/2){
 			for(int x=1;x<w;x++){
 				int p = y*w+x;
+				if(x < w/2)
+					pix[p] = 1;	
+					
+				/*
 				pix[p] = pix[p-w-1]+pix[p-w+1];
 				if(pix[p] == 1){
 					pix[p] = 1;
 				}else{
 					pix[p] = 0;
 				}
+				}*/
+				
 			}	
+			}else{
+				for(int x=1;x<w;x++){
+					int p = y*w+x;
+					if(x < w/2){
+						pix[p] = 0;	
+					}else{
+						pix[p] = 1;	
+					}
+				}
+			}
 		}
 		
 	}
